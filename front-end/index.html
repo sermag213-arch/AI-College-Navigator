@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>AI College Navigator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                🎓
+                <span>College<br>Navigator</span>
+            </div>
+
+            <nav>
+                <button class="nav-button active" data-section="dashboard">
+                    🏠 Dashboard
+                </button>
+
+                <button class="nav-button" data-section="profile">
+                    👤 My Profile
+                </button>
+
+                <button class="nav-button" data-section="plan">
+                    📋 College Plan
+                </button>
+
+                <button class="nav-button" data-section="assistant">
+                    🤖 AI Assistant
+                </button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <p>AI College Navigator</p>
+                <small>College planning made easier.</small>
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Dashboard -->
+            <section id="dashboard" class="page-section active">
+
+                <div class="page-header">
+                    <div>
+                        <p class="eyebrow">YOUR COLLEGE JOURNEY</p>
+                        <h1>Welcome back! 👋</h1>
+                        <p class="subtitle">
+                            Let's keep moving toward your college goals.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- Overview Cards -->
+                <div class="overview-grid">
+
+                    <div class="info-card">
+                        <span class="card-icon">🎓</span>
+                        <div>
+                            <p class="card-label">Target College</p>
+                            <h2 id="dashboard-college">
+                                Not selected
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <span class="card-icon">💻</span>
+                        <div>
+                            <p class="card-label">Intended Major</p>
+                            <h2 id="dashboard-major">
+                                Not selected
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <span class="card-icon">📅</span>
+                        <div>
+                            <p class="card-label">Graduation Year</p>
+                            <h2 id="dashboard-graduation">
+                                Not selected
+                            </h2>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Progress -->
+                <div class="card progress-card">
+
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">YOUR PROGRESS</p>
+                            <h2>College Preparation</h2>
+                        </div>
+
+                        <span id="progress-percent">0%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div
+                            id="progress-fill"
+                            class="progress-fill"
+                            style="width: 0%;">
+                        </div>
+                    </div>
+
+                    <p id="progress-text">
+                        0 of 7 tasks completed
+                    </p>
+
+                </div>
+
+
+                <!-- Quick Actions -->
+                <div class="card">
+
+                    <div class="section-heading">
+                        <div>
+                            <p class="eyebrow">QUICK ACTIONS</p>
+                            <h2>What would you like to do?</h2>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+
+                        <button class="action-button" data-section="profile">
+                            <span>👤</span>
+                            <strong>Set Up Profile</strong>
+                            <small>Tell us about yourself</small>
+                        </button>
+
+                        <button class="action-button" data-section="plan">
+                            <span>📋</span>
+                            <strong>View College Plan</strong>
+                            <small>See your next steps</small>
+                        </button>
+
+                        <button class="action-button" data-section="assistant">
+                            <span>🤖</span>
+                            <strong>Ask AI</strong>
+                            <small>Get college guidance</small>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Profile -->
+            <section id="profile" class="page-section">
+
+                <div class="page-header">
+                    <div>
+                        <p class="eyebrow">YOUR INFORMATION</p>
+                        <h1>My Profile</h1>
+                        <p class="subtitle">
+                            Tell us about yourself so we can personalize your college plan.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="card">
+
+                    <form id="profile-form">
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Your name"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="graduation">Graduation Year</label>
+
+                                <select id="graduation">
+
+                                    <option value="">
+                                        Select year
+                                    </option>
+
+                                    <option value="2027">2027</option>
+                                    <option value="2028">2028</option>
+                                    <option value="2029">2029</option>
+                                    <option value="2030">2030</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="gpa">GPA</label>
+
+                                <input
+                                    type="number"
+                                    id="gpa"
+                                    min="0"
+                                    max="4"
+                                    step="0.01"
+                                    placeholder="3.20"
+                                >
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="test-score">SAT / ACT Score</label>
+
+                                <input
+                                    type="text"
+                                    id="test-score"
+                                    placeholder="1180 or 25"
+                                >
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="major">Intended Major</label>
+
+                                <input
+                                    type="text"
+                                    id="major"
+                                    placeholder="Cybersecurity"
+                                >
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="college">Target College</label>
+
+                                <input
+                                    type="text"
+                                    id="college"
+                                    placeholder="Sam Houston State University"
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <button type="submit" class="primary-button">
+                            Save Profile
+                        </button>
+
+                        <p id="profile-message" class="success-message"></p>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+            <!-- College Plan -->
+            <section id="plan" class="page-section">
+
+                <div class="page-header">
+
+                    <div>
+                        <p class="eyebrow">YOUR NEXT STEPS</p>
+                        <h1>College Plan</h1>
+
+                        <p class="subtitle">
+                            Complete these tasks to stay on track.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <p class="eyebrow">CHECKLIST</p>
+                            <h2>Your College Tasks</h2>
+                        </div>
+
+                        <span id="plan-progress">
+                            0 / 7
+                        </span>
+
+                    </div>
+
+
+                    <div id="task-list" class="task-list">
+
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox">
+                            <span>
+                                <strong>Research admission requirements</strong>
+                                <small>Learn what your target college requires.</small>
+                            </span>
+                        </label>
+
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox">
+                            <span>
+                                <strong>Create your college application account</strong>
+                                <small>Set up the account you will use to apply.</small>
+                            </span>
+                        </label>
+
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox">
+                            <span>
+                                <strong>Complete your college application</strong>
+                                <small>Submit your application before the deadline.</small>
+                            </span>
+                        </label>
+
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox">
+                            <span>
+                                <strong>Search for scholarships</strong>
+                                <small>Look for scholarships that fit your goals.</small>
+                            </span>
+                        </label>
+
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox">
+                            <span>
+                                <strong>Complete financial aid requirements</strong>
+                                <small>Review FAFSA and other financial-aid steps.</small>
+                            </span>
+                        </label>
+
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox">
+                            <span>
+                                <strong>Research housing</strong>
+                                <small>Review your college's housing options.</small>
+                            </span>
+                        </label>
+
+                        <label class="task">
+                            <input type="checkbox" class="task-checkbox">
+                            <span>
+                                <strong>Prepare for orientation</strong>
+                                <small>Review orientation information and requirements.</small>
+                            </span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- AI Assistant -->
+
+            <div class="page-header">
+
+                <div>
+                    <p class="eyebrow">YOUR PERSONAL COLLEGE GUIDE</p>
+
+                    <h1>AI Assistant 🤖</h1>
+
+                    <p class="subtitle">
+                        Ask questions about college planning and admissions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card assistant-card">
+
+                <div class="assistant-header">
+
+                    <div class="ai-avatar">
+                        🤖
+                    </div>
+
+                    <div>
+                        <h2>College Navigator AI</h2>
+
+                        <p>
+                            Ask me anything about preparing for college.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div id="chat-container" class="chat-container">
+
+                    <div class="message ai-message">
+
+                        <div class="message-avatar">
+                            🤖
+                        </div>
+
+                        <div class="message-content">
+
+                            <strong>College Navigator AI</strong>
+
+                            <p>
+                                Hi! I'm your college planning assistant.
+                                Ask me a question and I'll help you figure
+                                out your next steps.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <form id="chat-form" class="chat-form">
+
+                    <input
+                            type="text"
+                            id="chat-input"
+                            placeholder="Ask me anything about college..."
+                            required
+                    >
+
+                    <button type="submit">
+                        Ask AI
+                    </button>
+
+                </form>
+
+                <div id="chat-messages"></div>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
